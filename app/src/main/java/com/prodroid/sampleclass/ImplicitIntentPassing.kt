@@ -16,6 +16,7 @@ class ImplicitIntentPassing : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_implicit_intent_passing)
 
+        //For Call and Dial No
         btnDial.setOnClickListener {
             if(checkPer()) {
                 callPhone()
@@ -24,6 +25,7 @@ class ImplicitIntentPassing : AppCompatActivity() {
             }
         }
 
+        //for Sharing message through email
         btnEmail.setOnClickListener {
             val emailIntent = Intent(Intent.ACTION_SEND)
             emailIntent.type = "plain/text"
@@ -34,6 +36,7 @@ class ImplicitIntentPassing : AppCompatActivity() {
 
         }
 
+        //Sharing to other Apps
         btnShare.setOnClickListener {
             val shareIntent = Intent(Intent.ACTION_SEND)
             shareIntent.type = "plain/text"
@@ -43,6 +46,7 @@ class ImplicitIntentPassing : AppCompatActivity() {
             startActivity(Intent.createChooser(shareIntent, "Share via"))
         }
 
+        //Sharing msg to Default Message App
         btnMsg.setOnClickListener {
             val sendIntent = Intent(Intent.ACTION_VIEW)
             sendIntent.data = Uri.parse("sms:+918000000000")
